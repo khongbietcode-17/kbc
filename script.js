@@ -52,7 +52,7 @@ const descriptions = document.querySelectorAll('.about-description');
   });
   
   const typewriter = document.getElementById('typewriter');
-  const text = ["HI !\nMY NICK\nNAME'S\nkhongbietcode","MY\nNAME'S\nTIN TO"];
+  const text = ["HI !\nMY NICK\nNAME'S\nKhong Biet Code","MY\nNAME'S\nTIN TO"];
   let line = 0;
   let index = 0;
   let currentText = "";
