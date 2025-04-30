@@ -118,13 +118,25 @@ body {
 }
 
 .product-card {
-    width: 100%;
+    width: 100%; /* Chiếm hết chiều rộng 1 hàng */
     height: auto;
     margin: 10px 0;
 }
 
 .product-card .image {
     height: 120px;
+}
+
+/* Media Query cho mobile */
+@media (max-width: 768px) {
+    .product-container {
+        display: block; /* Không sử dụng flex cho mobile */
+    }
+
+    .product-card {
+        width: 100%; /* Mỗi sản phẩm chiếm hết 1 hàng */
+        margin: 10px 0; /* Thêm khoảng cách giữa các sản phẩm */
+    }
 }
 
 /* Footer */

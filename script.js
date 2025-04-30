@@ -123,13 +123,30 @@ document.querySelectorAll('.tab-button').forEach(button => {
 
 const texts = "I have strong teamwork, time management, and task management skills. I am responsible, self-disciplined, and persistent in my work.";
 let i = 0;
+let isDeleting = false;
 
 function typeWriter() {
-  if (i < texts.length) {
-    document.getElementById('subtitle').innerHTML += texts.charAt(i);
+  const element = document.getElementById('subtitle');
+
+  if (!isDeleting) {
+    // Gõ từng ký tự
+    element.innerHTML = texts.substring(0, i + 1);
     i++;
-    setTimeout(typeWriter, 100); // tốc độ gõ
+    if (i === texts.length) {
+      isDeleting = true;
+      setTimeout(typeWriter, 2500); // Dừng lại 1.5s trước khi xóa
+      return;
+    }
+  } else {
+    // Xóa từng ký tự
+    element.innerHTML = texts.substring(0, i - 1);
+    i--;
+    if (i === 0) {
+      isDeleting = false;
+    }
   }
+
+  setTimeout(typeWriter, isDeleting ? 30 : 100); // tốc độ xóa nhanh hơn gõ
 }
 
 typeWriter();
